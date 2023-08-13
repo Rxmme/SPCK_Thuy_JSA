@@ -1,0 +1,459 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;/*box-sizing la thuoc tinh de tinh toan kich thuoc cua the */
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background: #f2f2f2;
+    background: #09001d;
+    overflow: hidden; /*overflow la thuoc tinh de dieu chinh hien thi noi dung cua the */
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 10%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.6s;
+    z-index: 1000;
+}
+
+.logo{
+    font-size: 32px;
+    color: #b3ba4e;
+    text-decoration: none;
+    font-weight: 700;
+    filter: drop-shadow(0 0 0.75rem #b3ba4e);
+}
+
+.navbar a{
+    display: inline-block;
+    margin-left: 40px;
+    text-decoration: none;
+    color: #f3f2ee;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active{
+    color: #c40094;
+}
+
+.main{
+    min-height: 100vh;
+    background: url(../img/chienTranhVietNam02.jpg) no-repeat center;
+    background-size: cover;
+    pointer-events: auto;
+    transition: 0.3s ease;
+
+}
+.main.active{
+    filter: blur(10px);
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.container{
+    display: flex;
+    height: 100vh;
+    width: 200%;
+}
+.home{
+    position: relative;
+    left:-50%;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-content{
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.home-content h1{
+    font-size: 64px;
+    color: #f3f2ee;
+    font-weight: 700;
+    text-shadow: 0 0 0.75rem #b3ba4e;
+    line-height: 1.2;
+}
+
+.home-content p{
+    font-size: 24px;
+    color: #f3f2ee;
+    font-weight: 500;
+    text-shadow: 0 0 0.75rem #b3ba4e;
+    margin: 20px 0 40px;
+}
+
+.home-content .start-btn{
+    display: inline-block;
+    padding: 12px 36px;
+    background: #c40094;
+    color: #f3f2ee;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.home-content .start-btn:hover{
+    background: #b3ba4e;
+}
+
+.popup-info{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 600px;
+    background: #f3f2ee;
+    border-radius: 6px;
+    padding: 10px 25px;
+    opacity: 0;/*opacity la thuoc tinh de dieu chinh do trong suot cua the */
+    pointer-events: none;/*pointer-events la thuoc tinh de dieu chinh su kich hoat cua the */
+    transition: .3s ease; /*transition la thuoc tinh de dieu chinh thoi gian chuyen dong cua the */
+}
+
+.popup-info.active{ /*active la thuoc tinh de dieu chinh chu yeu la lien ra */
+    opacity: 1;
+    pointer-events: auto;
+    transition: 0.3s;
+}
+
+.popup-info h2{
+    font-size: 50px;
+    color: #c40094;
+    align-items: center;
+
+}
+.popup-info .info{
+    display: inline-block;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+    margin: 4px 0;
+}
+
+.popup-info .btn-group{
+    position: relative;
+    width: 100%; 
+    display: flex;
+    justify-content: space-between; 
+    border-top: 1px solid #333;
+    margin-top: 10px;
+    padding: 15px 0 7px
+}
+
+.popup-info .btn-group .info-btn{
+    width: 130;
+    padding: 12px 36px;
+    background: #c40094;
+    color: #f3f2ee;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: 0.3s;
+    cursor: pointer;
+    margin: 10px 0;
+
+}
+
+.popup-info .btn-group .info-btn:nth-child(1){ /*nth-child la thuoc tinh de chon phan tu con thu may */
+    background: transparent;
+    color: #c40094;
+} 
+.popup-info .btn-group .info-btn:nth-child(1):hover{ /*nth-child la thuoc tinh de chon phan tu con thu may */
+    background: #c40094;
+    color: #fff;
+} 
+
+.popup-info .btn-group .info-btn:nth-child(2):hover{ /*nth-child la thuoc tinh de chon phan tu con thu may */
+    background: #950170;
+    border-color: #950270;
+} 
+
+.quiz-section{
+    width: 100%;
+    position: relative;
+    left: -50%;
+    background-image:url(../img/chienTranhVietNam02.jpg); 
+    background-size: cover;
+    background-position: center;
+    /* backdrop-filter: blur(5px); */
+    transition: 0.8s ease-in-out; /*ease-in-out la thuoc tinh de dieu chinh thoi gian chuyen dong cua the */
+    transition-delay: .25s;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* left: 0%; */
+}
+.quiz-section.active{
+    left: 0;
+    transition: 0.3s;
+}
+
+.quiz-section .quiz-box{
+    position: relative;
+    width: 600px;
+    background: transparent;/*transparent la thuoc tinh de dieu chinh do trong suot cua the */
+    border: 2px solid #c40094;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 25px;
+    opacity: 0;/*opacity la thuoc tinh de dieu chinh do trong suot cua the */
+    pointer-events: none;/*pointer-events la thuoc tinh de dieu chinh su kich hoat cua the */
+    transform: translate(-50%, -50%) scale(.9); /*transition la thuoc tinh de dieu chinh thoi gian chuyen dong cua the */
+    transition-delay: 3s ease;
+    transition: 0s;
+}
+
+.quiz-section .quiz-box.active{
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+    transition-delay: 1s ease;
+    transition: 0.3s;
+
+}
+
+.quiz-section .result-box.active{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+    transition-delay: 1s ease;
+    transition: 0.3s;
+}
+
+.quiz-box h1{
+    font-size: 30px;
+    text-align: center;
+    background: linear-gradient(45deg, transparent, #c40094 , transparent);
+    border-radius: 6px;
+    color: #fff;
+}
+
+.quiz-box .quiz-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    border-bottom: 2px solid #c40094;
+}
+
+.quiz-header span{
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+
+}
+
+.quiz-header .header-score{
+    background: #c40094;
+    border-radius: 3px;
+    padding: 7px;
+    margin: 10px;
+}
+
+.quiz-box .question-text{
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+    margin:  0;
+}
+
+.option-list .option{
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 2px solid rgba(225, 225, 225, .2);/*rgba la thuoc tinh de dieu chinh mau sac cua the */
+    font-size: 17px;
+    border-radius: 4px;
+    color: #fff;
+    margin: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.option-list .option:hover{
+    background: rgba(225, 225, 225, .2);
+    border-color: rgba(225, 225, 225, .2);
+}
+
+.option-list .option.correct{
+    background: #09001d;
+    border-color: #0f0;
+    color: #0f0;
+}
+
+.option-list .option.incorrect{
+    background: #09001d;
+    border-color: #a60045;
+    color: #a60045;
+}
+
+.option-list .option.disabled{
+    pointer-events: none;
+}
+.quiz-box .quiz-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    color: #fff;
+    border-top: 2px solid #c40094;
+    padding-top: 20px;
+}
+
+.quiz-footer .question-total{
+    font-size: 16px;
+    font-weight: 500;
+
+}
+
+.quiz-footer .next-btn{
+    width: 130px;
+    padding: 12px 36px;
+    background: #38312e;
+    color: #f3f2ee;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: 0.3s;
+    cursor: pointer;
+    margin: 10px 0;
+    pointer-events: none;
+}
+
+.quiz-footer .next-btn.active:hover{
+    background: #950170;
+    border-color: #950270;
+}
+
+.quiz-footer .next-btn.active{
+    pointer-events: auto;
+    background: #c40094;
+    border-bottom: #c40094;
+    color: #fff;
+}
+
+.quiz-section .result-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    background: transparent;
+    border: 2px solid #c40094;
+    border-radius: 6px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    opacity: 0; /*opacity la thuoc tinh de dieu chinh do trong suot cua the*/
+    pointer-events: none; /*pointer-events la thuoc tinh de dieu chinh su kich hoat cua the*/
+}
+
+.result-box h2{
+    font-size: 30px;
+    text-align: center;
+    background: linear-gradient(45deg, transparent, #c40094 , transparent);
+    border-radius: 6px;
+    color: #fff;
+}
+
+.result-box .percentage-container{
+    width: 300px;
+    /* background: #c40094; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0 40px;
+}
+
+.percentage-container .cirular-progress{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: conic-gradient(#c40094 3.6deg, rgba(255, 255, 255, .1) 0deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.percentage-container .cirular-progress::before{
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background: #09001d;
+    border-radius: 50%;
+}
+.cirular-progress .progress-value{
+    position: relative;
+    font-size: 45px;
+    font-weight: 500;
+}
+
+.progress-value .score-text{
+    font-size: 26px;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.result-box .buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buttons button{
+    width: 130px;
+    padding: 12px 36px;
+    background: #c40094;
+    color: #f3f2ee;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: 0.3s;
+    cursor: pointer;
+    margin: 0 20px 20px;
+    transition: 0.5s;
+}
+
+.buttons button:nth-child(1):hover{
+    background: #950170;
+    border-color: #950270;
+}
+
+.buttons button:nth-child(2){
+    background: transparent;
+    color: #c40094;
+}
+
+.buttons button:nth-child(2):hover{
+    background: #c40094;
+    color: #fff;
+}
